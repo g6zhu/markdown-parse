@@ -54,7 +54,7 @@ public class MarkdownParseTest {
         }
         return toReturn;
     }
-
+    //
     static boolean containsNewLine(String str) {
         Pattern regex = Pattern.compile("^(.*)$", Pattern.MULTILINE);
             return regex.split(str).length > 0;
