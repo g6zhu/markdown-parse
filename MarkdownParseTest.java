@@ -1,6 +1,7 @@
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -66,7 +67,11 @@ public class MarkdownParseTest {
         ArrayList<String> linkOne = getLinks(contents);
         assertEquals("[https://something.com, some-page.html]", linkOne.toString());
     }
-
+    @Test
+    public void testFile1() throws IOException {
+        String contents= Files.readString(Path.of("./test-file.md"));
+        List<String> expect = List.of("https://something.com", "some-page.html");
+        assertEquals(MarkdownParse.getLinks(contents), expect);
+    }
     
-
 }
